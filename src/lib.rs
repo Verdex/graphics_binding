@@ -21,6 +21,24 @@ struct SDL_Keysym {
     unused : u32,
 }
 
+const KMOD_NONE : u16 = 0x0000;
+const KMOD_LSHIFT : u16 = 0x0001;
+const KMOD_RSHIFT : u16 = 0x0002;
+const KMOD_LCTRL : u16 = 0x0040;
+const KMOD_RCTRL : u16 = 0x0080;
+const KMOD_LALT : u16 = 0x0100;
+const KMOD_RALT : u16 = 0x0200;
+const KMOD_LGUI : u16 = 0x0400;
+const KMOD_RGUI : u16 = 0x0800;
+const KMOD_NUM : u16 = 0x1000;
+const KMOD_CAPS : u16 = 0x2000;
+const KMOD_MODE : u16 = 0x4000;
+const KMOD_SCROLL : u16 = 0x8000;
+const KMOD_CTRL : u16 = KMOD_LCTRL | KMOD_RCTRL; 
+const KMOD_SHIFT : u16 = KMOD_LSHIFT | KMOD_RSHIFT;
+const KMOD_ALT : u16 = KMOD_LALT | KMOD_RALT;
+const KMOD_GUI : u16 = KMOD_LGUI | KMOD_RGUI;
+
 const SDL_SCANCODE_UNKNOWN : c_int = 0;
 const SDL_SCANCODE_A : c_int = 4;
 const SDL_SCANCODE_B : c_int = 5;

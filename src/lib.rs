@@ -141,9 +141,17 @@ struct SDL_KeyboardEvent {
     key : SDL_Keysym,
 }
 
+#[repr(C)]
+#[derive(Clone, Copy)]
+struct SDL_QuitEvent {
+    event_type : u32,
+    timestamp : u32,
+}
+
 const SDL_WINDOWEVENT : u32 = 0x200;
 const SDL_KEYDOWN : u32 = 0x300;
 const SDL_KEYUP : u32 = 0x301;
+const SDL_QUIT : u32 = 0x100;
 
 #[repr(C)]
 union SDL_Event {

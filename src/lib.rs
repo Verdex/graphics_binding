@@ -176,6 +176,8 @@ union SDL_Event {
     event_type : u32,
     window : SDL_WindowEvent,
     keyboard : SDL_KeyboardEvent,
+    quit : SDL_QuitEvent,
+    mouse_motion : SDL_MouseMotionEvent,
 }
 
 /*

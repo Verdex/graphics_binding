@@ -76,6 +76,9 @@ const SDL_INIT_VIDEO : u32 = 0x20;
 mod tests {
     use super::*;
 
+    use std::{thread, time};
+    use std::mem::MaybeUninit;
+
     #[test]
     fn blarg() {
         unsafe {
@@ -87,17 +90,24 @@ mod tests {
 
 
             loop {
-                let mut event : *mut SDL_Event = std::ptr::null_mut();
-                SDL_PollEvent(event);
-                if event != std::ptr::null_mut() {
-                    match (*event).event_type {
+                let mut event : MaybeUninit<SDL_Event> = MaybeUninit::uninit();
+                let mut event_ptr = event.as_mut_ptr();
+                let z = SDL_PollEvent(event_ptr);
+                println!("result = {}", z);
+                if !event_ptr.is_null() {
+                    let e = event.assume_init();
+                    println!("event type = {}", e.event_type);
+                    match e.event_type {
                         WINDOW_EVENT_TYPE => {
-                            let z = (*event).window;
+                            let z = e.window;
                             println!( "window event = {}", z.event );
                         },
                         _ => {},
                     }
                 }
+
+                let x = time::Duration::from_millis(100);
+                thread::sleep(x);
             }
 
             let mut input = String::new();

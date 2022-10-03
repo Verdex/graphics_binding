@@ -162,6 +162,34 @@ struct SDL_MouseMotionEvent {
     yrel : i32,
 }
 
+#[repr(C)]
+#[derive(Clone, Copy)]
+struct SDL_MouseButtonEvent {
+    event_type : u32,
+    timestamp : u32,
+    window_id : u32,
+    which : u32,
+    button : u8,
+    state : u8,
+    clicks : u8,
+    x : i32,
+    y : i32,
+}
+
+#[repr(C)]
+#[derive(Clone, Copy)]
+struct SDL_MouseWheelEvent {
+    event_type : u32,
+    timestamp : u32,
+    window_id : u32,
+    which : u32,
+    x : i32,
+    y : i32,
+    direction : u32,
+    precise_x : c_float, 
+    precise_y : c_float,
+}
+
 const SDL_WINDOWEVENT : u32 = 0x200;
 const SDL_KEYDOWN : u32 = 0x300;
 const SDL_KEYUP : u32 = 0x301;

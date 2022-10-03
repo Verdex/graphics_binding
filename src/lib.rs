@@ -148,6 +148,20 @@ struct SDL_QuitEvent {
     timestamp : u32,
 }
 
+#[repr(C)]
+#[derive(Clone, Copy)]
+struct SDL_MouseMotionEvent {
+    event_type : u32,
+    timestamp : u32,
+    window_id : u32,
+    which : u32,
+    state : u32,
+    x : i32,
+    y : i32,
+    xrel : i32,
+    yrel : i32,
+}
+
 const SDL_WINDOWEVENT : u32 = 0x200;
 const SDL_KEYDOWN : u32 = 0x300;
 const SDL_KEYUP : u32 = 0x301;

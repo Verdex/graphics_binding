@@ -171,10 +171,16 @@ struct SDL_MouseButtonEvent {
     which : u32,
     button : u8,
     state : u8,
-    clicks : u8,
+    clicks : u8, // 1 for single click, 2 for double click, etc
     x : i32,
     y : i32,
 }
+
+const SDL_BUTTON_LEFT : u8 = 1;
+const SDL_BUTTON_MIDDLE : u8 = 2;
+const SDL_BUTTON_RIGHT : u8 = 3;
+const SDL_BUTTON_X1 : u8 = 4;
+const SDL_BUTTON_X2 : u8 = 5;
 
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -190,6 +196,9 @@ struct SDL_MouseWheelEvent {
     precise_y : c_float,
 }
 
+const SDL_MOUSEWHEEL_NORMAL : u32 = 0;
+const SDL_MOUSEWHEEL_FLIPPED : u32 = 1;
+
 const SDL_WINDOWEVENT : u32 = 0x200;
 const SDL_KEYDOWN : u32 = 0x300;
 const SDL_KEYUP : u32 = 0x301;
@@ -198,6 +207,9 @@ const SDL_MOUSEMOTION : u32 = 0x400;
 const SDL_MOUSEBUTTONDOWN : u32 = 0x401;
 const SDL_MOUSEBUTTONUP : u32 = 0x402;
 const SDL_MOUSEWHEEL : u32 = 0x403;
+
+const SDL_RELEASED : u8 = 0;
+const SDL_PRESSED : u8 = 1;
 
 #[repr(C)]
 union SDL_Event {

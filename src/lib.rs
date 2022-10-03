@@ -206,6 +206,8 @@ union SDL_Event {
     keyboard : SDL_KeyboardEvent,
     quit : SDL_QuitEvent,
     mouse_motion : SDL_MouseMotionEvent,
+    mouse_button : SDL_MouseButtonEvent,
+    mouse_wheel : SDL_MouseWheelEvent,
 }
 
 /*

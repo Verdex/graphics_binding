@@ -166,6 +166,10 @@ const SDL_WINDOWEVENT : u32 = 0x200;
 const SDL_KEYDOWN : u32 = 0x300;
 const SDL_KEYUP : u32 = 0x301;
 const SDL_QUIT : u32 = 0x100;
+const SDL_MOUSEMOTION : u32 = 0x400;
+const SDL_MOUSEBUTTONDOWN : u32 = 0x401;
+const SDL_MOUSEBUTTONUP : u32 = 0x402;
+const SDL_MOUSEWHEEL : u32 = 0x403;
 
 #[repr(C)]
 union SDL_Event {

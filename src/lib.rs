@@ -251,9 +251,9 @@ extern {
     fn SDL_Quit();
     fn SDL_CreateWindow( title : *const c_char, x : c_int, y : c_int, width : c_int, height : c_int, flags : u32) -> *const c_void;
     fn SDL_DestroyWindow(window : *const c_void);
+    fn SDL_PollEvent(event : *mut SDL_Event) -> c_int;
     // TODO:  Not tested
     fn SDL_GetError() -> *const c_char;
-    fn SDL_PollEvent(event : *mut SDL_Event) -> c_int;
 }
 
 const SDL_INIT_EVENTS : u32 = 0x4000;

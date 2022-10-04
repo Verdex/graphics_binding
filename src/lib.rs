@@ -12,6 +12,27 @@ struct SDL_WindowEvent {
     data_2 : i32,
 }
 
+const SDL_WINDOWEVENT_NONE : u8 = 0;
+const SDL_WINDOWEVENT_SHOWN : u8 = 1;
+const SDL_WINDOWEVENT_HIDDEN : u8 = 1;
+const SDL_WINDOWEVENT_EXPOSED : u8 = 1;
+const SDL_WINDOWEVENT_MOVED : u8 = 1;
+const SDL_WINDOWEVENT_RESIZED : u8 = 1;
+const SDL_WINDOWEVENT_SIZE_CHANGED : u8 = 1;
+const SDL_WINDOWEVENT_MINIMIZED : u8 = 1;
+const SDL_WINDOWEVENT_MAXIMIZED : u8 = 1;
+const SDL_WINDOWEVENT_RESTORED : u8 = 1;
+const SDL_WINDOWEVENT_ENTER : u8 = 1;
+const SDL_WINDOWEVENT_LEAVE : u8 = 1;
+const SDL_WINDOWEVENT_FOCUS_GAINED: u8 = 1;
+const SDL_WINDOWEVENT_FOCUS_LOST : u8 = 1;
+const SDL_WINDOWEVENT_CLOSE : u8 = 1;
+const SDL_WINDOWEVENT_TAKE_FOCUS : u8 = 1;
+const SDL_WINDOWEVENT_HIT_TEST : u8 = 1;
+const SDL_WINDOWEVENT_ICCPROF_CHANGED : u8 = 1;
+const SDL_WINDOWEVENT_DISPLAY_CHANGED : u8 = 1;
+
+
 #[repr(C)]
 #[derive(Clone, Copy)]
 struct SDL_Keysym {
@@ -222,42 +243,6 @@ union SDL_Event {
     mouse_wheel : SDL_MouseWheelEvent,
 }
 
-/*
-*/
-
-/*#[repr(C)]
-union SDL_Event {
-    Uint32
-
-type
-
-event type, shared with all events
-
-SDL_CommonEvent 
-SDL_WindowEvent
-SDL_KeyboardEvent
-SDL_TextEditingEvent
-SDL_TextInputEvent
-SDL_MouseMotionEvent
-SDL_MouseButtonEvent
-SDL_MouseWheelEvent
-SDL_JoyAxisEvent
-SDL_JoyBallEvent
-SDL_JoyHatEvent
-SDL_JoyButtonEvent
-SDL_JoyDeviceEvent
-SDL_ControllerAxisEvent
-SDL_ControllerButtonEvent
-SDL_ControllerDeviceEvent
-SDL_AudioDeviceEvent
-SDL_QuitEvent
-SDL_UserEvent
-SDL_SysWMEvent
-SDL_TouchFingerEvent
-SDL_MultiGestureEvent
-SDL_DollarGestureEvent
-SDL_DropEvent
-  }*/
 
 
 #[link(name="SDL2")]
@@ -304,6 +289,9 @@ mod tests {
                             let z = e.window;
                             println!( "window event = {}", z.event );
                         },
+                        SDL_QUIT => {
+                            break;
+                        }
                         _ => {},
                     }
                 }
@@ -311,9 +299,6 @@ mod tests {
                 let x = time::Duration::from_millis(100);
                 thread::sleep(x);
             }
-
-            let mut input = String::new();
-            std::io::stdin().read_line(&mut input).unwrap();
 
             SDL_DestroyWindow(window);
 

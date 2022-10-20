@@ -9,4 +9,9 @@ fn main() {
         .args(["../SDL2/SDL2.dll", &format!("target/{}", out)])
         .output()
         .expect("SDL2 copy failed");
+
+    Command::new("cp")
+        .args(["../SDL2/SDL2_ttf.dll", &format!("target/{}", out)])
+        .output()
+        .expect("SDL2_ttf copy failed");
 }

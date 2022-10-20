@@ -2,7 +2,7 @@
 mod sdl;
 
 use std::ffi::*;
-use crate::sdl::*;
+use crate::sdl::event::*;
 
 
 

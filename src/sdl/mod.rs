@@ -1,4 +1,5 @@
 
+pub mod rect;
 pub mod opaque;
 pub mod pixels;
 pub mod keyboard;

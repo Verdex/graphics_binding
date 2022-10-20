@@ -24,8 +24,8 @@ extern {
 
 #[link(name="SDL2_ttf")]
 extern {
-    fn TTF_OpenFont(font_file_name : *const c_char, point_size : c_int) -> *const c_void;
-    fn TTF_RenderText_Solid(font : *const c_void, text : *const c_char, foreground : SDL_Color) -> *const c_void;
+    fn TTF_OpenFont(font_file_name : *const c_char, point_size : c_int) -> *const TTF_Font;
+    fn TTF_RenderText_Solid(font : *const TTF_Font, text : *const c_char, foreground : SDL_Color) -> *const SDL_Surface;
 }
 
 const SDL_INIT_EVENTS : u32 = 0x4000;

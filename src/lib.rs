@@ -1,8 +1,13 @@
 
 pub mod sdl;
+pub mod ttf;
 
 use std::ffi::*;
+use crate::sdl::pixels::*;
 use crate::sdl::event::*;
+
+use crate::sdl::opaque::*;
+use crate::ttf::opaque::*;
 
 
 
@@ -10,8 +15,8 @@ use crate::sdl::event::*;
 extern {
     fn SDL_Init(flags : u32) -> c_int; // TODO:  return zero for ok
     fn SDL_Quit();
-    fn SDL_CreateWindow( title : *const c_char, x : c_int, y : c_int, width : c_int, height : c_int, flags : u32) -> *const c_void;
-    fn SDL_DestroyWindow(window : *const c_void);
+    fn SDL_CreateWindow( title : *const c_char, x : c_int, y : c_int, width : c_int, height : c_int, flags : u32) -> *const SDL_Window;
+    fn SDL_DestroyWindow(window : *const SDL_Window);
     fn SDL_PollEvent(event : *mut SDL_Event) -> c_int;
     // TODO:  Not tested
     fn SDL_GetError() -> *const c_char;
@@ -20,6 +25,7 @@ extern {
 #[link(name="SDL2_ttf")]
 extern {
     fn TTF_OpenFont(font_file_name : *const c_char, point_size : c_int) -> *const c_void;
+    fn TTF_RenderText_Solid(font : *const c_void, text : *const c_char, foreground : SDL_Color) -> *const c_void;
 }
 
 const SDL_INIT_EVENTS : u32 = 0x4000;

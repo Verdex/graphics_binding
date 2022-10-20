@@ -1,5 +1,5 @@
 
-mod sdl;
+pub mod sdl;
 
 use std::ffi::*;
 use crate::sdl::event::*;
@@ -15,6 +15,11 @@ extern {
     fn SDL_PollEvent(event : *mut SDL_Event) -> c_int;
     // TODO:  Not tested
     fn SDL_GetError() -> *const c_char;
+}
+
+#[link(name="SDL2_ttf")]
+extern {
+    fn TTF_OpenFont(font_file_name : *const c_char, point_size : c_int) -> *const c_void;
 }
 
 const SDL_INIT_EVENTS : u32 = 0x4000;
@@ -35,6 +40,10 @@ mod tests {
             let title = &CString::new("the title").expect("CString::new failed");
 
             let window = SDL_CreateWindow(title.as_ptr(), 100, 100, 1000, 1000, 0);
+
+            let font_file_name = &CString::new("C:\\Windows\\Fonts\\arial.ttf").expect("CString::new failed");
+
+            let font = TTF_OpenFont(font_file_name.as_ptr(), 12);
 
 
             loop {

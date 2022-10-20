@@ -16,4 +16,4 @@ Recommendation is to not use this repository for anything important.  This is a 
 
 # Misc
 
-* Right now you still need the SDL2.dll in order to use this crate.  This has something to do with how SDL2 is build for when being used with the visual studio c++ build tools.
+* Right now you still need the SDL2.dll in order to use this crate.  This has something to do with how SDL2 is built when being used with the visual studio c++ build tools.

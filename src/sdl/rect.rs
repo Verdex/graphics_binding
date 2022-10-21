@@ -4,8 +4,8 @@ use std::ffi::c_int;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct SDL_Rect {
-    x : c_int,
-    y : c_int,
-    w : c_int,
-    h : c_int,
+    pub x : c_int,
+    pub y : c_int,
+    pub w : c_int,
+    pub h : c_int,
 }

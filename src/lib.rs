@@ -13,7 +13,7 @@ use crate::ttf::opaque::*;
 
 #[link(name="SDL2")]
 extern {
-    pub fn SDL_Init(flags : u32) -> c_int; // TODO:  return zero for ok
+    pub fn SDL_Init(flags : u32) -> c_int; 
     pub fn SDL_Quit();
     pub fn SDL_CreateWindow( title : *const c_char, x : c_int, y : c_int, width : c_int, height : c_int, flags : u32) -> *const SDL_Window;
     pub fn SDL_DestroyWindow(window : *const SDL_Window);

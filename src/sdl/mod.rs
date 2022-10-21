@@ -1,4 +1,5 @@
 
+pub mod init;
 pub mod video;
 pub mod render;
 pub mod rect;

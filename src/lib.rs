@@ -26,6 +26,14 @@ extern {
     fn SDL_CreateTextureFromSurface(renderer : *const SDL_Renderer, surface : *const SDL_Surface) -> *const SDL_Texture;
     fn SDL_RenderCopy(renderer : *const SDL_Renderer, texture : *const SDL_Texture, src : *const SDL_Rect, dest : *const SDL_Rect) -> c_int; // zero for success and negative for error
     // TODO:  Not tested
+    fn SDL_RenderFlush(renderer : *const SDL_Renderer) -> c_int;
+    fn SDL_RenderClear(renderer : *const SDL_Renderer) -> c_int;
+    fn SDL_RenderCopyEx(renderer : *const SDL_Renderer, texture : *const SDL_Texture, src : *const SDL_Rect, dest : *const SDL_Rect, angle : c_double, center : *const SDL_Point, flip : c_int) -> c_int;
+    fn SDL_RenderCopyExF(renderer : *const SDL_Renderer, texture : *const SDL_Texture, src : *const SDL_Rect, dest : *const SDL_FRect, angle : c_double, center : *const SDL_FPoint, flip : c_int) -> c_int;
+    fn SDL_RenderCopyF(renderer : *const SDL_Renderer, texture : *const SDL_Texture, src : *const SDL_Rect, dest : *const SDL_FRect) -> c_int;
+    fn SDL_RenderDrawLine(renderer : *const SDL_Renderer, x1 : c_int, y1 : c_int, x2 : c_int, y2 : c_int) -> c_int;
+    fn SDL_RenderDrawLineF(renderer : *const SDL_Renderer, x1 : c_float, y1 : c_float, x2 : c_float, y2 : c_float) -> c_int;
+    fn SDL_RenderDrawLines(renderer : *const SDL_Renderer, points : *const SDL_Point, count : c_int) -> c_int;
     fn SDL_FreeSurface(surface : *const SDL_Surface);
     fn SDL_DestroyTexture(texture : *const SDL_Texture);
     fn SDL_DestroyRenderer(renderer : *const SDL_Renderer);

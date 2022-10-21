@@ -4,10 +4,8 @@ pub mod ttf;
 
 use std::ffi::*;
 use crate::sdl::pixels::*;
-use crate::sdl::event::*;
 use crate::sdl::rect::*;
-use crate::sdl::init::*;
-
+use crate::sdl::event::*;
 use crate::sdl::opaque::*;
 use crate::ttf::opaque::*;
 
@@ -73,13 +71,16 @@ mod tests {
 
     #[test]
     fn example() {
+        use crate::sdl::init::*;
+        use crate::sdl::video::*;
+
         unsafe {
             SDL_Init(SDL_INIT_EVENTS | SDL_INIT_VIDEO);
             TTF_Init();
 
             let title = &CString::new("the title").expect("CString::new failed");
 
-            let window = SDL_CreateWindow(title.as_ptr(), 100, 100, 1000, 1000, 0);
+            let window = SDL_CreateWindow(title.as_ptr(), 100, 100, 1000, 1000, SDL_WINDOW_RESIZABLE);
 
             let renderer = SDL_CreateRenderer(window, -1, 0);
 

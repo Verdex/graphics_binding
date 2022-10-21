@@ -48,7 +48,7 @@ mod tests {
     use std::mem::MaybeUninit;
 
     #[test]
-    fn blarg() {
+    fn example() {
         unsafe {
             SDL_Init(SDL_INIT_EVENTS | SDL_INIT_VIDEO);
             TTF_Init();

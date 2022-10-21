@@ -20,14 +20,14 @@ extern {
     fn SDL_DestroyWindow(window : *const SDL_Window);
     fn SDL_PollEvent(event : *mut SDL_Event) -> c_int;
     fn SDL_GetError() -> *const c_char;
-    // TODO:  Not tested
     fn SDL_RenderPresent(renderer : *const SDL_Renderer);
     fn SDL_CreateRenderer(window : *const SDL_Window, index : c_int, flags : u32) -> *const SDL_Renderer;
+    fn SDL_CreateTextureFromSurface(renderer : *const SDL_Renderer, surface : *const SDL_Surface) -> *const SDL_Texture;
+    fn SDL_RenderCopy(renderer : *const SDL_Renderer, texture : *const SDL_Texture, src : *const SDL_Rect, dest : *const SDL_Rect) -> c_int; // zero for success and negative for error
+    // TODO:  Not tested
     fn SDL_FreeSurface(surface : *const SDL_Surface);
     fn SDL_DestroyTexture(texture : *const SDL_Texture);
     fn SDL_DestroyRenderer(renderer : *const SDL_Renderer);
-    fn SDL_CreateTextureFromSurface(renderer : *const SDL_Renderer, surface : *const SDL_Surface) -> *const SDL_Texture;
-    fn SDL_RenderCopy(renderer : *const SDL_Renderer, texture : *const SDL_Texture, src : *const SDL_Rect, dest : *const SDL_Rect) -> c_int; // zero for success and negative for error
 }
 
 #[link(name="SDL2_ttf")]

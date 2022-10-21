@@ -6,6 +6,7 @@ use std::ffi::*;
 use crate::sdl::pixels::*;
 use crate::sdl::event::*;
 use crate::sdl::rect::*;
+use crate::sdl::init::*;
 
 use crate::sdl::opaque::*;
 use crate::ttf::opaque::*;
@@ -38,8 +39,6 @@ extern {
     fn TTF_Init() -> c_int;
 }
 
-const SDL_INIT_EVENTS : u32 = 0x4000;
-const SDL_INIT_VIDEO : u32 = 0x20;
 
 #[cfg(test)]
 mod tests {

@@ -34,6 +34,22 @@ extern {
     fn SDL_RenderDrawLine(renderer : *const SDL_Renderer, x1 : c_int, y1 : c_int, x2 : c_int, y2 : c_int) -> c_int;
     fn SDL_RenderDrawLineF(renderer : *const SDL_Renderer, x1 : c_float, y1 : c_float, x2 : c_float, y2 : c_float) -> c_int;
     fn SDL_RenderDrawLines(renderer : *const SDL_Renderer, points : *const SDL_Point, count : c_int) -> c_int;
+    fn SDL_RenderDrawLinesF(renderer : *const SDL_Renderer, points : *const SDL_FPoint, count : c_int) -> c_int;
+    fn SDL_RenderDrawPoint(renderer : *const SDL_Renderer, x : c_int, y : c_int) -> c_int;
+    fn SDL_RenderDrawPointF(renderer : *const SDL_Renderer, x : c_float, y : c_float) -> c_int;
+    fn SDL_RenderDrawPoints(renderer : *const SDL_Renderer, points : *const SDL_Point, count : c_int) -> c_int;
+    fn SDL_RenderDrawPointsF(renderer : *const SDL_Renderer, points : *const SDL_FPoint, count : c_int) -> c_int;
+    fn SDL_RenderDrawRect(renderer : *const SDL_Renderer, rect : *const SDL_Rect) -> c_int;
+    fn SDL_RenderDrawRectF(renderer : *const SDL_Renderer, rect : *const SDL_FRect) -> c_int;
+    fn SDL_RenderDrawRects(renderer : *const SDL_Renderer, rects : *const SDL_Rect, count : c_int) -> c_int;
+    fn SDL_RenderDrawRectsF(renderer : *const SDL_Renderer, rects : *const SDL_FRect, count : c_int) -> c_int;
+    fn SDL_RenderFillRect(renderer : *const SDL_Renderer, rect : *const SDL_Rect) -> c_int;
+    fn SDL_RenderFillRectF(renderer : *const SDL_Renderer, rect : *const SDL_FRect) -> c_int;
+    fn SDL_RenderFillRects(renderer : *const SDL_Renderer, rects : *const SDL_Rect, count : c_int) -> c_int;
+    fn SDL_RenderFillRectsF(renderer : *const SDL_Renderer, rects : *const SDL_FRect, count : c_int) -> c_int;
+
+    fn SDL_SetRenderDrawColor(renderer : *const SDL_Renderer, r : u8, g : u8, b : u8, a : u8) -> c_int;
+
     fn SDL_FreeSurface(surface : *const SDL_Surface);
     fn SDL_DestroyTexture(texture : *const SDL_Texture);
     fn SDL_DestroyRenderer(renderer : *const SDL_Renderer);

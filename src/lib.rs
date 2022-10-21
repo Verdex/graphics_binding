@@ -47,9 +47,9 @@ extern {
     fn SDL_RenderFillRectF(renderer : *const SDL_Renderer, rect : *const SDL_FRect) -> c_int;
     fn SDL_RenderFillRects(renderer : *const SDL_Renderer, rects : *const SDL_Rect, count : c_int) -> c_int;
     fn SDL_RenderFillRectsF(renderer : *const SDL_Renderer, rects : *const SDL_FRect, count : c_int) -> c_int;
-
     fn SDL_SetRenderDrawColor(renderer : *const SDL_Renderer, r : u8, g : u8, b : u8, a : u8) -> c_int;
-
+    fn SDL_RenderSetScale(renderer : *const SDL_Renderer, scale_x : c_float, scale_y : c_float) -> c_int;
+    fn SDL_SetRenderDrawBlendMode(renderer : *const SDL_Renderer, blend_mode : c_int) -> c_int;
     fn SDL_FreeSurface(surface : *const SDL_Surface);
     fn SDL_DestroyTexture(texture : *const SDL_Texture);
     fn SDL_DestroyRenderer(renderer : *const SDL_Renderer);

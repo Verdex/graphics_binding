@@ -12,6 +12,8 @@ pub const SDL_MOUSEBUTTONDOWN : u32 = 0x401;
 pub const SDL_MOUSEBUTTONUP : u32 = 0x402;
 pub const SDL_MOUSEWHEEL : u32 = 0x403;
 
+pub const SDL_RELEASED : u8 = 0;
+pub const SDL_PRESSED : u8 = 1;
 
 #[repr(C)]
 #[derive(Clone, Copy)]

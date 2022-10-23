@@ -51,6 +51,3 @@ pub struct SDL_MouseWheelEvent {
 
 pub const SDL_MOUSEWHEEL_NORMAL : u32 = 0;
 pub const SDL_MOUSEWHEEL_FLIPPED : u32 = 1;
-
-pub const SDL_RELEASED : u8 = 0;
-pub const SDL_PRESSED : u8 = 1;
